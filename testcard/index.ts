@@ -1,6 +1,6 @@
 import { Engine } from "@babylonjs/core";
 import { createStartScene } from './createStartScene';
-//import { ShowInspector } from "@babylonjs/inspector";
+import { ShowInspector } from "@babylonjs/inspector";
 import './main.css';
 
 const CanvasName = "renderCanvas";
@@ -20,6 +20,7 @@ document.body.appendChild(canvas);
 
 let eng = new Engine(canvas, true, {}, true);
 let startScene = createStartScene(eng);
- eng.runRenderLoop(() => {
+eng.runRenderLoop(() => {
     startScene.render();
-});    
+});     
+ShowInspector(startScene); 
