@@ -4,7 +4,7 @@ import type { SceneData } from "./interfaces";
 
 // rotate box
 let boxAngle: number = 0.3;
-let boxSpeed: number = 0.01;
+let boxSpeed: number = 0.001;
 
 // move light in ellipse and cycle luma
 let lightAngle: number = 0;
@@ -17,6 +17,9 @@ let verticalSpeed: number = 0.006;
 let verticalAngle: number = 0;
 let verticalRangeY: number = 0.3;
 let boxPositionY: number = 4;
+// let boxPositionX: number = 5;
+// let horizontalRangeX: number = 0.3;
+// let horizontalAngle: number = 100;
 let spherePositionY: number = 1.5;
 
 export default function createRunScene(runScene: SceneData) {
@@ -49,5 +52,12 @@ export default function createRunScene(runScene: SceneData) {
       spherePositionY - verticalRangeY * Math.sin(verticalAngle * 2 * Math.PI);
     verticalAngle += verticalSpeed;
     verticalAngle %= 1;
+
+    // runScene.box.position.x =
+    //   boxPositionX + horizontalRangeX * Math.sin(horizontalAngle * 2 * Math.PI);
+    // horizontalAngle += verticalSpeed; // Using verticalSpeed for horizontal movement
+    // horizontalAngle %= 1;
   });
 }
+
+
