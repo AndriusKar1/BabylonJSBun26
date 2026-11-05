@@ -119,4 +119,4 @@ export default function createStartScene(engine: Engine) {
   const assetsManager = addAssets(that.scene);
   assetsManager.load();
   return that;
-}
+}   
