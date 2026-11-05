@@ -20,8 +20,20 @@ function createBox(scene: Scene) {
   let box = MeshBuilder.CreateBox("box",{ size: 1 }, scene);
   box.position.y = 3;
   box.position.y = 0.51;
+  // remove
+  box.position.x =  Math.random() + 100;
   return box;
 }
+function createBox2(scene: Scene) {
+  let box = MeshBuilder.CreateBox("box",{ size: 1 }, scene);
+  box.position.y = -3;
+  box.position.y = -0.51;
+  // remove
+  box.position.x =  Math.random() + 100;
+  return box;
+}
+
+
 
 function createPointLight(scene: Scene) {
   const light = new PointLight("light", new Vector3(-1, 1, 0), scene);
@@ -127,6 +139,7 @@ function createArcRotateCamera(scene: Scene) {
 export default function createStartScene(engine: Engine) {
   let scene = new Scene(engine);
   let box = createBox(scene);
+  let box2 = createBox2(scene);
   let lightBulb = createPointLight(scene);
   let lightDirectional = createDirectionalLight(scene);
   let lightSpot = createSpotLight(scene);
@@ -139,6 +152,7 @@ export default function createStartScene(engine: Engine) {
   let that: SceneData = {
     scene,
     box,
+    box2,
     lightBulb,
     lightDirectional,
     lightSpot,

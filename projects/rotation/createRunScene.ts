@@ -3,7 +3,7 @@ import { Vector3, Quaternion } from "@babylonjs/core";
 import type { SceneData } from "./interfaces";
 
 // rotate box
-let boxAngle: number = 0.3;
+let boxAngle: number = 45;
 let boxSpeed: number = 0.001;
 
 // move light in ellipse and cycle luma
@@ -17,10 +17,14 @@ let verticalSpeed: number = 0.006;
 let verticalAngle: number = 0;
 let verticalRangeY: number = 0.3;
 let boxPositionY: number = 4;
-// let boxPositionX: number = 5;
-// let horizontalRangeX: number = 0.3;
-// let horizontalAngle: number = 100;
+let boxPositionX: number = 2;
+let box2PositionY: number = 6;
+let box2PositionX: number = 5;
+let horizontalRangeX: number = 5;
+let horizontalAngle: number = 100;
+let horizontalAngle2: number = 50;
 let spherePositionY: number = 1.5;
+let spherePositionX: number = 2;
 
 export default function createRunScene(runScene: SceneData) {
   runScene.scene.onAfterRenderObservable.add(() => {
@@ -49,14 +53,23 @@ export default function createRunScene(runScene: SceneData) {
     runScene.box.position.y =
       boxPositionY + verticalRangeY * Math.sin(verticalAngle * 2 * Math.PI);
     runScene.sphere.position.y =
-      spherePositionY - verticalRangeY * Math.sin(verticalAngle * 2 * Math.PI);
+      spherePositionY + 5 * Math.sin(verticalAngle * 1 * Math.PI);
     verticalAngle += verticalSpeed;
     verticalAngle %= 1;
+    runScene.sphere.position.x =
+      spherePositionX + 25 * Math.sin(horizontalAngle * 2 * Math.PI);
 
-    // runScene.box.position.x =
-    //   boxPositionX + horizontalRangeX * Math.sin(horizontalAngle * 2 * Math.PI);
-    // horizontalAngle += verticalSpeed; // Using verticalSpeed for horizontal movement
-    // horizontalAngle %= 1;
+    runScene.box.position.x =
+      boxPositionX + horizontalRangeX * Math.sin(horizontalAngle * 10 * 360);
+    horizontalAngle += verticalSpeed; // Using verticalSpeed for horizontal movement
+    horizontalAngle %= 1;
+    runScene.box2.position.x =
+      box2PositionX + -5 * Math.sin(horizontalAngle2 * 2 * 10);
+    horizontalAngle2 += verticalSpeed;
+    horizontalAngle2 %= 1;
+    runScene.box2.position.y =
+      box2PositionY + 5 * Math.sin(verticalAngle * 1 * Math.PI);
+
   });
 }
 
