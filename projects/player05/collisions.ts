@@ -40,6 +40,8 @@ export function setupCollisions(sceneData: SceneData): void {
   // Collision filter groups
   const FILTER_GROUP_GROUND = 1;
   const FILTER_GROUP_CUBE = 3;
+//   const FILTER_GROUP_CHARACTER = 5;
+//   const FILTER_GROUP_OTHER = 7;
   
 
 
