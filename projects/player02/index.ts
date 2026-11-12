@@ -5,6 +5,7 @@ import {createCharacterController} from "./createCharacterController";
 //import { ShowInspector } from "@babylonjs/inspector";
 import './main.css';
 
+
 const CanvasName = "renderCanvas";
 
 let canvas = document.createElement("canvas");
